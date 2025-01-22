@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <Authors>Search Pioneer</Authors>
+    <Company>Search Pioneer</Company>
+    <Copyright>Search Pioneer</Copyright>
+    <RepositoryUrl>https://github.com/searchpioneer/ranking-cli</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SolutionRoot>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.bat))</SolutionRoot>
+    <AssemblyOriginatorKeyFile>$(SolutionRoot)build\keys\keypair.snk</AssemblyOriginatorKeyFile>
+    <PublicKey>002400000480000094000000060200000024000052534131000400000100010015e23fdd340cdc94b230ac6e5d370ca1a72b7947884f13afd9d4eb2d3ff24cc4a49afd746aecfa0e249d108fdbb60ec6d288821c1c98352c67353392741fb063ff64f67065d9e31226a0d129d8d466dbc31cdd2ed9d97568b098bd734bc928128f2af2cc22dfcfa9ebb4f52096f6f332c202767adf10f23e30434ae4a0ff57c4</PublicKey>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <MinVerMinimumMajorMinor>1.0</MinVerMinimumMajorMinor>
+    <IsPackable>false</IsPackable>
+    <!-- Suppress Missing XML comment for publicly visible type or member -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MinVer" PrivateAssets="all"/>
+  </ItemGroup>
+
+</Project>

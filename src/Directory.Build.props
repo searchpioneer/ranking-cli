@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"/>
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <SignAssembly>true</SignAssembly>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DebugSymbols>true</DebugSymbols>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        <PackageIcon>nuget-icon.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(SolutionRoot)README.md" Pack="true" PackagePath="." Visible="false" />
+        <None Include="$(SolutionRoot)LICENSE" Pack="true" PackagePath="." Visible="false" />
+        <None Include="$(SolutionRoot)nuget-icon.png" Pack="true" PackagePath="." Visible="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+    </ItemGroup>
+</Project>
