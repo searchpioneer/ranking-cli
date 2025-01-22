@@ -12,6 +12,9 @@
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
         <PackageIcon>nuget-icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageReleaseNotes>https://github.com/searchpioneer/ranking-cli/releases</PackageReleaseNotes>
+        <PackageTags>search;ranking;learning-to-rank;machine-learning;ltr;ml;lightgbm;fasttree;regression-trees</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
