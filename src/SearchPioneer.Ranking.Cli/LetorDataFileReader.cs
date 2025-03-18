@@ -15,33 +15,20 @@
 internal static class LetorDataFileReader
 {
     /// <summary>
-    /// Reads data points from a LETOR format file.
+    /// Reads data points from a file in LETOR format.
     /// </summary>
-    /// <param name="path">The path to the file</param>
+    /// <param name="path">The input path to read from</param>
     /// <returns>An enumerable of <see cref="DataPoint"/></returns>
     public static IEnumerable<DataPoint> Read(string path)
     {
-        var stream = File.OpenRead(path);
-        return Read(stream);
-    }
-    
-    /// <summary>
-    /// Reads data points from a stream in LETOR format.
-    /// </summary>
-    /// <remarks>
-    /// Closes the stream after use.
-    /// </remarks>
-    /// <param name="stream">The stream to read from</param>
-    /// <returns>An enumerable of <see cref="DataPoint"/></returns>
-    public static IEnumerable<DataPoint> Read(Stream stream)
-    {
-        using var reader = new StreamReader(stream);
+        using var stream = File.OpenRead(path);
+        using var reader = new StreamReader(stream, leaveOpen: true);
         while (reader.ReadLine() is { } line)
         {
             var lineSpan = line.AsSpan();
-            if (lineSpan.IsEmpty || lineSpan.StartsWith("#") || lineSpan.IsWhiteSpace()) 
+            if (lineSpan.IsEmpty || lineSpan.StartsWith("#") || lineSpan.IsWhiteSpace())
                 continue;
-            
+
             yield return DataPoint.Parse(lineSpan);
         }
     }

@@ -34,14 +34,6 @@ public class LetorDataFileReaderTests
 0 qid:3 1:0.0       2:0.0       # 1374 bullwinkle";
     
     [Fact]
-    public void Can_read_valid_input_from_stream()
-    {
-        using var stream = new MemoryStream(Encoding.UTF8.GetBytes(Dataset));
-        var items = LetorDataFileReader.Read(stream).ToList();
-        Assert.Equal(25, items.Count);
-    }
-    
-    [Fact]
     public void Can_read_valid_input_from_file()
     {
         var file = new TempFile();
